@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+{% block app_content %}
+    <h1>{{ _('Product Record') }}</h1>
+    <div class="row">
+        <div class="col-md-4">
+            {% from "_datahelpers.html" import render_view_field %}
+            <form method=post>
+                <dl class="list-group">
+                    {{ render_view_field(form.title) }}
+                    {{ render_view_field(form.description) }}
+                    {{ render_view_field(form.tiny_description) }}
+                    {{ render_view_field(form.short_description) }}
+                    {{ render_view_field(form.medium_description) }}
+                    {{ render_view_field(form.long_description) }}
+                    {{ render_view_field(form.price) }}
+                    {{ render_view_field(form.shelf_time) }}
+                    {{ render_view_field(form.campus_id) }}
+                    {{ render_view_field(form.archived) }}
+                    {{ render_view_field(form.taxable) }}
+                    {{ render_view_field(form.category_names) }}
+                    {{ render_view_field(form.vendor) }}
+                    {{ render_view_field(form.source) }}
+                    {{ render_view_field(form.notes) }}
+                    {{ render_view_field(form.total_cal) }}
+                    {{ render_view_field(form.num_servings) }}
+                    {{ render_view_field(form.ingredients) }}
+                    {{ render_view_field(form.calories) }}
+                    {{ render_view_field(form.proteins) }}
+                    {{ render_view_field(form.sugar) }}
+                    {{ render_view_field(form.carbohydrates) }}
+                    {{ render_view_field(form.fat) }}
+                    {{ render_view_field(form.consumer_category) }}
+                    {{ render_view_field(form.ws_case_size) }}
+                    {{ render_view_field(form.kiosk_ship_qty) }}
+                    {{ render_view_field(form.pick_station) }}
+                    {{ render_view_field(form.fc_title) }}
+                    {{ render_view_field(form.width_space) }}
+                    {{ render_view_field(form.height_space) }}
+                    {{ render_view_field(form.depth_space) }}
+                    {{ render_view_field(form.slotted_width) }}
+                    {{ render_view_field(form.tag_volume) }}
+                    {{ render_view_field(form.delivery_option) }}
+                    {{ render_view_field(form.tag_applied_by) }}
+
+                </dl>
+                <p>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+
+

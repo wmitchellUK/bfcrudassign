@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: microblogredux
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: microblogredux
+        track: stable
+    spec:
+      containers:
+        - name: microblogredux
+          image: developmentpeak/microblog:latest
+          env:
+          - name: DATABASE_URL
+            value: mysql+pymysql://microblog:1308Pacific@mysql/microblog
+          - name: SECRET_KEY
+            value: my-secret-key
+          ports:
+          - containerPort: 80
+            name: microblogredux

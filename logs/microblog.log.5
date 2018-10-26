@@ -1,0 +1,70 @@
+2018-10-22 20:10:22,545 ERROR: Exception on /db [GET] [in /Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/flask/app.py:1761]
+Traceback (most recent call last):
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1159, in _execute_context
+    context)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 467, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlite3.IntegrityError: UNIQUE constraint failed: product.id
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2292, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1815, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1718, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 35, in reraise
+    raise value
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1813, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1799, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/Users/wmitchell/proj/microblog/app/main/routes.py", line 76, in import_csv
+    db.session.commit() # aren't added until this is called
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/scoping.py", line 157, in do
+    return getattr(self.registry(), name)(*args, **kwargs)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 906, in commit
+    self.transaction.commit()
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 461, in commit
+    self._prepare_impl()
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 441, in _prepare_impl
+    self.session.flush()
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2177, in flush
+    self._flush(objects)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2297, in _flush
+    transaction.rollback(_capture_exception=True)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 66, in __exit__
+    compat.reraise(exc_type, exc_value, exc_tb)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 187, in reraise
+    raise value
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/session.py", line 2261, in _flush
+    flush_context.execute()
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 389, in execute
+    rec.execute(self)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/unitofwork.py", line 548, in execute
+    uow
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 181, in save_obj
+    mapper, table, insert)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/persistence.py", line 799, in _emit_insert_statements
+    execute(statement, multiparams)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 186, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1159, in _execute_context
+    context)
+  File "/Users/wmitchell/proj/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 467, in do_executemany
+    cursor.executemany(statement, parameters)
+sqlalchemy.exc.IntegrityError: (sqlite3.IntegrityError) UNIQUE constraint failed: product.id [SQL: 'INSERT INTO product (id, title, description, tiny_description, short_description, medium_description, long_description, price, shelf_time, campus_id, last_update, archived, taxable, category_names, vendor, source, notes, total_cal, num_servings, ingredients, calories, proteins, sugar, carbohydrates, fat, consumer_category, ws_case_size, kiosk_ship_qty, pick_station, fc_title, width_space, height_space, depth_space, slotted_width, tag_volume, delivery_option, tag_applied_by) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'] [parameters: (('2350', 'Harmless Harvest - Harmless Harvest Coconut Water 16 oz', 'Organic Coconut Water', 'null', 'null', 'null', 'null', '5.99', '30', '87', '1524454848', 1, 1, 'Other Beverage;Drinks', 'Harmless Harvest', 'Good Stuff', 'null', '60', '2', 'organic coconut water', '60', '0', '14', '15', '0', 'Drinks', '12', '1', '2', 'Coconut Water', '2.5', '8', '2.5', '2.5', '2000', 'P', 'W'), ('2352', 'Slingshot - Strawberry', '.', 'null', 'null', 'null', 'null', '4.79', '30', '87', '1526426647', 1, 1, 'Yogurt & Dairy;Snacks', 'SlingShot', 'SlingShot', 'null', '347', '1', '(drink) lowfat milk, milk protein concentrate, \x03agave syrup, strawberries, water, natural flavors, fruit and vegetable juice (for color), yogurt cultures; (shot) toasted oats, chia seeds, almond bits, honey, sunflower oil', '347', '18', '37', '46', '10', 'Breakfast', '6', '1', '2', 'Yogurt', '2.75', '6', '2.75', '2.75', '500', 'P', 'W'), ('2358', 'Savvy Savories - Pasta Bolognese', '.', 'null', 'null', 'null', 'null', '6.99', '11', '87', '1527120885', 1, 1, 'Reheatable Entree;Entrees', 'Savvy Savories', 'Natural Choice', 'null', '999', '2', 'Enriched pasta(durum wheat semolina, niacin, Iron, lactate, thiamin mononitrate, riboflavin, folic acid), organic tomato puree, meatless Italian saus ... (152 characters truncated) ...  parmesan cheese (cultured milk, enzymes, salt, cellulose), expeller pressed canola oil, herbs, spice ,and pure sea salt. Contains: Milk, Wheat, Soy.', '290', '17', '3', '40', '7', 'Entrees', '1', '1', '1', 'Entrees_Veg', '5', '7.25', '2', '5', '1000', 'P', 'W'), ('2360', 'Blue Bottle - New Orleans Style Iced Coffee', 'Clover organic milk, organic chicory, organic cane sugar', 'Iced coffee cold brewed.', 'Sweet, creamy iced coffee cold-brewed with roasted chicory, with whole milk and organic cane sugar.', "New Orleans Iced Coffee is a sweet, creamy, decadent iced coffee that's cold-brewed with roasted chicory, then cut with whole milk and organic cane sugar.", "From the original Blue Bottle makers in Oakland, New Orleans Iced Coffee is a sweet, creamy, decadent iced coffee that's cold-brewed with roasted chi ... (16 characters truncated) ... ith whole milk and organic cane sugar. Blue Bottle works directly with farmers around the world to source the most delicious and sustainable coffees.", '4.59', '17', '87', '1524454848', 1, 1, 'Coffee;Drinks', 'Blue Bottle', 'Petaluma Farms', 'null', '160', '1', 'organic milk, cold-brewed organic coffee blend, organic cane syrup', '160', '6', '19', '19', '6', 'Drinks', '12', '1', '2', 'Iced Coffee', '2.75', '4.25', '2.75', '2.75', '2000', 'P', 'W'), ('2363', 'Shakti - Thai Coconut Curry with Peanut Ginger Rice', 'thai jasmine rice, organic tofu, soy, coconut milk, cauliflower, carrots, potato, butternut squash, bell peppers, green beans, mushrooms, tomato, onion, peanut butter, ginger, garlic, sugar, vegetable, soy, spices, salt, lemon grass, thai basil', 'null', 'null', 'null', 'null', '9.59', '21', '87', '1522797494', 1, 1, 'Reheatable Entree;Entrees', 'Shakti', 'Fresh India Cuisine', 'null', '999', '1', 'thai jasmine rice, organic tofu, soy, coconut milk, cauliflower, carrots, potato, butternut squash, bell peppers, green beans, mushrooms, tomato, onion, peanut butter, ginger, garlic, sugar, vegetable, soy, spices, salt, lemon grass, thai basil', '560', '26', '12', '65', '24', 'Entrees', '1', '1', '1', 'Entrees_Veg', '7.25', '4.75', '2', '4.75', '200', 'P', 'W'), ('2457', 'Savvy Savories - Spicy Peanut Noodles', 'null', 'null', 'null', 'null', 'null', '6.99', '8', '87', '1527120885', 1, 1, 'Reheatable Entree;Entrees', 'Savvy Savories', 'Natural Choice', 'null', '999', '2', 'Enriched pasta(durum wheat semolina, niacin, Iron, lactate, thiamin mononitrate, riboflavin, folic acid), organic carrots, pure peanut butter, natura ... (189 characters truncated) ... e), rice vinegar (rice, water), organic garlic, ginger, organic cane sugar, expeller pressed canola oil and spices. Contains: Peanuts, Wheat and Soy,', '310', '12', '5', '41', '12', 'Entrees', '1', '1', '1', 'Entrees_Veg', 'null', 'null', 'null', 'null', '1000', 'P', 'W'), ('2603', 'Perfect Bar - Almond Butter', '.', 'null', 'null', 'null', 'null', '2.99', '180', '87', '1524454849', 1, 1, 'Energy Bars;Snacks', 'Perfect Bar', 'Good Stuff', 'null', '310', '1', 'almond butter, organic nonfat dry milk, allmond pieces, organic dried whole egg powder, organic rice protein, organic sesame seeds, organic flax seed oil, organic sunflower seed oil, organic sesame oil, organic olive oil, organic pumpkin seed oil, dried whole food powders', '310', '13', '18', '24', '18', 'Snacks', '8', '8', '4', 'Energy Bars', '2', '6.5', '0.5', '2', '2000', 'P', 'W'), ('2604', 'Perfect Bar - Peanut Butter', '.', 'null', 'null', 'null', 'null', '2.99', '180', '87', '1524454849', 1, 1, 'Energy Bars;Snacks', 'Perfect Bar', 'Good Stuff', 'null', '330', '1', 'organic peanut butter, honey, nonfat dry milk, whole eggs, flax seed oil, sunflower seed oil, sesame seed oil, olive oil, pumkin seed oil, apple, alfalfa, celery, kelp, dulse, carrot, spinach all organic', '330', '17', '18', '26', '18', 'Snacks', '8', '8', '4', 'Energy Bars', '2', '6.5', '0.5', '2', '2000', 'P', 'W')  ... displaying 10 of 400 total bound parameter sets ...  ('5779', 'MUSH - Wild Blueberry Overnight Oats', 'Wild Blueberry Overnight Oats', 'null', 'null', 'null', 'null', '4.49', '60', '87', '1527037717', 1, 1, 'Sweet Snacks & Dessert;Snacks', 'MUSH', 'Good Stuff', 'null', 'null', '1', 'Oats, water, coconut cream, wild blueberries (infused with apple juice), sea salt', '270', '7', '10', '39', '9', 'Breakfast', '18', 'null', 'null', 'Parfaits', 'null', 'null', 'null', 'null', '2000', 'M', 'V'), ('5872', 'GT Kombucha - Unity', 'null', 'null', 'null', 'null', 'null', '3.99', '42', '87', '1527120885', 1, 1, 'Kombucha;Drinks', 'GT Kombucha', 'Good Stuff', 'null', 'null', '2', "G.T.'s Kombucha* (Kombucha Culture*, Black Tea*, Green Tea*, Kiwi Juice*), cherry juice*, coconut*, lemongrass*, vanilla.* - *Organically Produced.", '30', '0', '8', '8', '0', 'Drinks', '12', 'null', 'null', 'Probiotic Drink', 'null', 'null', 'null', 'null', '1000', 'P', 'W'))]

@@ -1,0 +1,46 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block title %}
+    {% if title %}{{ title }} - Product CRUD App{% else %}{{ _('Welcome to ByteFoods - Product CRUD App') }}{% endif %}
+{% endblock %}
+
+{% block navbar %}
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+
+                <div>
+                    <img src="../static/bytelogo.png" width="20%" height="20%" style="float: left; padding: 10px"/>
+                    <div class="navbar-nav">
+                        <a href="{{ url_for('main.index') }}">List Products </a> |
+                        <a href="{{ url_for('main.import_csv') }}">Import Products </a> |
+                        <a href="{{ url_for('main.create_product') }}">Create Product</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </nav>
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        {# application content needs to be provided in the app_content block #}
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+        {% block app_content %}{% endblock %}
+
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.lang(g.locale) }}
+
+{% endblock %}
