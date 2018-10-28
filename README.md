@@ -17,5 +17,9 @@ A few todos that I'd like to get done given a little more time.
 - Add a REST API
 - Make my morning coffee :)
 
+
+To Run
+- From the root folder execute 'venv/bin/python -m flask run' 
+
 Thanks for taking the time to review
 For a quick video demo - https://www.youtube.com/watch?v=FJRMw6KgDAg
